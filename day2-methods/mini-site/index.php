@@ -7,7 +7,7 @@
 
 <style type="text/css">
 	h2{
-		color: pink;
+		color: gray;
 	}
 	.home .home a,
 	.about .about a,
