@@ -1,0 +1,5 @@
+<div><?php if( $_SESSION['loggedin'] = true ){
+		<div><a href="login.php?action=logout">Log Out</a></div>;
+			}else{
+		<div><a href="login.php">Login</a></div>;
+			} ?>

@@ -1,0 +1,242 @@
+@-webkit-keyframes basicfade {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-moz-keyframes basicfade {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-o-keyframes basicfade {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes basicfade {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+*, *:before, *:after {
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.cf:before,
+.cf:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+.cf:after {
+	clear: both;
+}
+.cf {
+	*zoom: 1;
+}
+input{
+	vertical-align: bottom;
+}
+html{
+	background-color: #E2E2E2;
+}
+body{
+	font-size:100%;
+	width:90%;
+	max-width:1200px;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	margin: 1em auto;
+	background-color: #FFF;
+	min-width: 320px;
+}
+a{
+	color: #1E9DB9;
+	text-decoration: none;
+}
+/*Basic layout*/
+header#banner{
+	padding:1em;
+	background-color: #F3F3F3;
+}
+main#content{
+	
+	padding:1em;
+	
+	margin:1em 0;
+	min-width: 320px;
+	clear: both;
+}
+aside#sidebar{
+	
+	padding:1em;
+	margin:1em 0;	
+}
+footer#colophon{
+	background-color: #eee;
+	padding:1em;
+	clear: both;
+}
+/*Header styles*/
+#banner h1{
+	width:50%;
+	float:left;
+}
+#banner h1 a{
+	text-decoration: none;
+}
+/*Content styles*/
+#content .post{
+	margin-bottom: 2em;
+}
+.post h1{
+	margin-bottom:.2em;
+}
+.postmeta{ /*date and category info*/
+	font-size:1.2em;
+	margin: 0;
+	color: #818181;
+	font-weight: normal;
+}
+hr{
+	outline:none;
+	border:0;
+	border-top: dotted 1px #CCC;
+	margin:1em 0;
+}
+
+/*Sidebar section styles*/
+#sidebar h1{
+	font-size:1.2em;
+	text-transform: uppercase;
+	color:#818181;
+	margin-bottom: .25em;
+}
+
+#sidebar ul {
+	margin-top:0;
+	padding:0;
+	margin-bottom:2em;
+	list-style: none;
+}
+#sidebar li{
+	margin: .3em  0;
+	padding-left:.8em;
+	position: relative;
+}
+#sidebar li:before { 
+	content: "";
+	border-color: transparent #EFA287;
+	border-style: solid;
+	border-width: 0.35em 0 0.35em 0.4em;
+	display: block;
+	height: 0;
+	width: 0;
+	left: 0em;
+	top: .35em;
+	position: absolute;
+}
+/*Comments section styles*/
+.comments ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.comments li{
+	background-color: #F3F3F3;
+	border-radius: 1em;
+	padding:1em;
+	margin:3em 0 1em 0;
+	position: relative;
+}
+.comments li h2{
+	font-size:1.2em;
+	position: absolute;
+	top:-2.3em;
+	left:3em;
+	color: #919191;
+
+}
+.comments li h2:before{
+	content:'';
+	border-right: 1.3em solid #F3F3F3;
+	border-top: 1.3em solid transparent;
+	width:0;
+	height:0;
+	display: block;
+	position: absolute;
+	left:-1.5em;
+	top:.5em;
+}
+.comments li p{
+	margin-top:0;
+}
+.comments time{
+	color: #7E7E7E;
+	font-size:.8em;
+}
+
+.comment-form label{
+	display: block;
+	margin: 1em 0 .5em;
+}
+.comment-form input[name],
+.comment-form textarea{
+	width:100%;
+	min-width: 300px;
+	font-size:1.2em;
+	padding:.25em;
+}
+input[type=submit],.button{
+	text-decoration: none;
+	margin-top:1em;
+	background-color: #7F7F7F;
+	color:white;
+	border:none;
+	border-radius: .6em;
+	font-size: 1.2em;
+	padding:.5em 1em;
+	display: inline-block;
+}
+input[type=submit]:hover,
+input[type=submit]:focus,
+.button:hover,
+.button:focus
+{
+	background-color: #F46151;
+	outline: none;
+}
+/*error/success message*/
+.message{	
+	padding:1em;
+	border-radius: 1em;
+	-webkit-animation: basicfade 1s ; /* Safari 4+ */
+	-moz-animation:    basicfade 1s ; /* Fx 5+ */
+	-o-animation:      basicfade 1s ; /* Opera 12+ */
+	animation:         basicfade 1s ; /* IE 10+ */
+}
+.error{
+	background-color: #FCD2D1
+}
+.success{
+	background-color: #CDFEE9
+}
+/*Search and Pagination additions*/
+#searchform{
+	float:right;
+	width:40%;
+	min-width: 320px;
+	text-align: right;
+}
+#searchform input[type=submit]{
+	font-size:.8em;
+	padding:.4em;
+}
+.pagination .button{
+	margin-right:1em;
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px)  {
+	main#content{
+		float:right;
+		width:70%;
+		border-left:dotted 1px #CCC;
+	}
+	aside#sidebar{
+		float:left;
+		width:30%;
+	}
+}		
