@@ -16,6 +16,9 @@ if( $db->connect_errno > 0 ){
 
 }
 
+define("SITE_URL",  'http://localhost/ericrozet/sadipity/');
+define("SITE_PATH",  'C:/xampp/htdocs/ericrozet/sadipity/');
+
 //error reporting--set the sensitivity of PHP'S error disply
 //show all errors except notices (E_ALL & ~E_NOTICE)
 //show all errors while developing--not for live site! (E_ALL)

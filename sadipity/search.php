@@ -10,11 +10,15 @@ $page_number = 1;//default current starting page
 
 	//look up all the published posts
 	//that have that prase in the title or body
-	$query = "SELECT title, body, post_id
-				FROM posts
-				WHERE is_published = 1
-				AND ( title LIKE '%" . $phrase . "%' 
-				OR body LIKE '%" . $phrase . "%') ";
+	echo $query = "SELECT w.winery_name, w.about, w.winery_id
+				FROM wineries AS w
+				LEFT JOIN posts AS p
+				ON w.user_id = p.user_id
+				WHERE 
+				( p.title LIKE '%" . $phrase . "%' 
+				OR p.body LIKE '%" . $phrase . "%'
+				OR w.about LIKE '%" . $phrase . "%'
+				OR w.winery_name LIKE '%" . $phrase . "%') ";
 
 	//run it
 	$result = $db->query($query);
@@ -49,10 +53,10 @@ $page_number = 1;//default current starting page
 	<section class="search-results">
 	<?php while( $row = $result_modified->fetch_assoc() ){ ?>	
 	<article>
-		<h1><a href="single-post.php?post_id=<?php echo $row['post_id'] ?>">
-		<?php echo $row['title'] ?>
+		<h1><a href="single-winery.php?w_id=<?php echo $row['winery_id'] ?>">
+		<?php echo $row['winery_name'] ?>
 		</a></h1>
-		<p><?php echo $row['body'] ?></p>
+		<p><?php echo $row['about'] ?></p>
 	</article>
 	<?php }//end while loop if rows found ?>
 

@@ -16,8 +16,12 @@ if( $db->connect_errno > 0 ){
 
 }
 
+//Define file Path Constants - make constants all caps to distinguish between variables
+//on Xampp, DOCUMENT_ROOT takes you to c:/xampp/htdocs
+define("SITE_PATH", 'http://localhost/ericrozet/blog/');
+
 //error reporting--set the sensitivity of PHP'S error disply
 //show all errors except notices (E_ALL & ~E_NOTICE)
 //show all errors while developing--not for live site! (E_ALL)
-error_reporting ( E_ALL & ~E_NOTICE );
+error_reporting ( E_ALL );
 //no close php

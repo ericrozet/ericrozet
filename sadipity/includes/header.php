@@ -46,24 +46,25 @@ $user_id = $_SESSION['user_id'];
 	<form action="search.php" method="get" id="searchform">
 			<input type="search" name="phrase" id="phrase" value="">
 			<input type="submit" value="Search">
-
-			<select name="wineries">			
+	</form>
+	<form action="single-winery.php" method="get">
+		
+		<select name="w_id">			
 			<option value="">Select Winery</option>
-			<option value="baily">Baily</option>
-			<option value="callaway">Callaway</option>
-			<option value="europa">Europa</option>			
-			<option value="falkner">Falkner</option>
-			<option value="frangipani">Frangipani</option>
-			<option value="hart">Hart</option>
-			<option value="leoness">Leoness</option>
-			<option value="miramonte">Miramonte</option>
-			<option value="oakmont">Oakmont</Option>
-			<option value="pontfamily">Pont Family</option>
-			<option value="thornton">Thornton</option>
-			<option value="wilsoncreek">Wilson Creek</option>
-			</select>
+			<?php //get list of all wineries with their IDs
+			$q = "SELECT * FROM wineries";
+			$result = $db->query($q);
+			while($row = $result->fetch_assoc()){?>
+			<option value="<?php echo $row['winery_id'] ?>"><?php echo $row['winery_name'] ?></option>
+
+			<?php } ?>
+			
+		</select>
+
 			<input type="submit">
 	</form>
+
+
 	<div><?php if( $_SESSION['loggedin'] == true ){ ?>
 		<div><a href="?action=logout">Log Out</a></div>
 			<?php }else{ ?>

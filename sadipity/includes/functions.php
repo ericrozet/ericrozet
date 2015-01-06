@@ -119,7 +119,7 @@ function user_badge( $user, $db ){
 		$row = $result->fetch_assoc();
 
 		if( $row['userpic'] ){
-			$image = $row['userpic'];
+			$image = avatar_image_path($row['userpic'], 'thumb_img', false);
 		}else{
 			//use this to set to the root in xamp. docuemnt root is htdocs
 			$image = 'http://localhost/ericrozet/blog/images/defaultUser.jpg';
@@ -131,7 +131,7 @@ function user_badge( $user, $db ){
 		<img src="<?php echo $image; ?>" class="user-pic">
 		<div class="user-name"><?php echo $row['username']; ?></div>
 		<div class="user-role">
-		<?php echo $row['is_admin'] == 1 ? 'Administrator' : 'Commenter' ; ?>
+		<?php echo $row['is_winery'] == 1 ? 'Winery' : 'Member' ; ?>
 		</div>
 	</div>
 	<?php
@@ -140,5 +140,23 @@ function user_badge( $user, $db ){
 		echo 'please <a href="login.php">Login</a>';
 	}
 }//end function user_badge
+
+/**
+ * helper for generating complete URL or filepath to an uploaded image
+ * Path will look like C:/xampp/htdocs/folder/uploads/s45fs836p434_small.jpg
+ * Path will look like C:/xampp/htdocs/folder/uploads/s45fs836p434_small.jpg
+ * URL will look like http://localhost/folder/uploads/s45fs836p434_small.jpg
+ * @param $key string randomly generated key unique to each image
+ * @param $size_name string. valid values are 'thumb_img' (DEFAULT), 'medium_img', 'large_img'
+ * @param $is_path boolean. 1 = returns a file path
+ *							0 = returns a URL
+ */
+function avatar_image_path($key, $size_name = 'thumb_img', $is_path = true){
+	if($is_path){
+		return SITE_PATH . 'uploads/' .$key . '_' . $size_name . '.jpg';
+	}else{
+		return SITE_URL . 'uploads/' .$key . '_' . $size_name . '.jpg';
+	}
+}
 
 //no close php

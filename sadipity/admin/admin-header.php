@@ -10,8 +10,12 @@ if( $_SESSION['loggedin'] != true ){
 require('../includes/config.php');
 include_once('../includes/functions.php');
 
+
 //who is logged in? Store in a variable for easy use on admin pages
 $user_id = $_SESSION['user_id'];
+
+//uploader for pictures
+include('upload-parser.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,6 +25,7 @@ $user_id = $_SESSION['user_id'];
 </head>
 <body>
 <header>
+<h1>Admin</h1>
 <?php user_badge($user_id, $db); ?>
 <nav>
 		<ul>
