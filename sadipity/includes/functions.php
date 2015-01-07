@@ -39,6 +39,11 @@ return $dateR;
 function clean_input( $input, $db ){
 	return mysqli_real_escape_string( $db, strip_tags($input));
 }
+function clean_video( $input, $db ){
+	$allowed = '<iframe><embed><video>';
+	return mysqli_real_escape_string( $db, strip_tags($input, $allowed ));
+}
+
 
 function eric_array_list($array){
 	//if the array exists, display it

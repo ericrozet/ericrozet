@@ -39,6 +39,6 @@ include('upload-parser.php');
 
 	<ul class="utilities">
 		<li><a href="../">View Blog</a></li>
-		<li><a href="login.php?action=logout">Log Out</a></li>
+		<li><a href="../login.php?action=logout">Log Out</a></li>
 	</ul>
 </header>

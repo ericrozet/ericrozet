@@ -12,10 +12,9 @@ if($result->num_rows >= 1){
 
 	<article>
 		<h1><?php echo $row['winery_name'] ?></h1>
-		<br/>
 		<h1>Address:</h1>
-		<p><?php echo $row['address_1'] ?></p>
-		<p><?php echo $row['city'] ?></p>
+		<p><?php echo $row['address_1'] ?><br/>
+		<?php echo $row['city'] .", ". $row['state'] ?></p>
 		<h1>About:</h1>
 		<p><?php echo $row['about'] ?></p>
 	</article>
