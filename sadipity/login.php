@@ -41,7 +41,7 @@ if( $_POST['did_login'] == true ){
 			$_SESSION['user_id'] = $user_id;
 
 			//now redirect user to admin panel or any site
-			header('Location:index.php');
+			header('Location:admin/index.php');
 		}else{
 			$message = 'Your username and password combo is incorrect.';
 		}//end if credentials match

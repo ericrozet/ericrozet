@@ -38,7 +38,7 @@ include('upload-parser.php');
 	</nav>
 
 	<ul class="utilities">
-		<li><a href="../">View Blog</a></li>
+		<li><a href="../single-winery.php">View Winery Page</a></li>
 		<li><a href="../login.php?action=logout">Log Out</a></li>
 	</ul>
 </header>
